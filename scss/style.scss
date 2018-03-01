@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/css?family=Aref+Ruqaa);
+@import url(https://fonts.googleapis.com/css?family=Fondamento);
+@import url(https://fonts.googleapis.com/css?family=Rochester);
+$hd:#00b3b3;
+$gen:skyblue;  
+$font-hd:'Rochester',helvetica;
+$font-gen:'Fondamento',helvetica;
+$font-foo:'Rochester',helvetica;
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html,body{height:100%;}
+body{
+  background-color:black;
+  color:$gen;
+  font-size:2.4rem;
+  font-family:$font-foo;
+}
+.center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+//------------display:screen1-----------------//
+#display{
+  text-align:center;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  height:10rem;
+  width:20rem;
+  background-color:#000;
+  @include box-shadow(0 0 2rem #555 inset, 0 0 1.5rem cyan);
+  border-radius:10px;
+  color: $hd;
+  font-size:2rem;
+  z-index:1; 
+  #discon{
+     font-family:$font-gen;
+     //font-size:2.5rem;
+     word-spacing:0.5rem;
+  }
+}
+#cx,#cy{
+  cursor:pointer;
+  font-weight:bold;
+  font-size:3rem;
+  font-family:$font-hd;
+  border-bottom:4px dotted transparent;
+  border-radius:10px;
+  color:#00cccc;
+  transition:.2s ease;
+  &:hover{
+    color:#cc0000;
+    //font-size:3.3rem;
+    border-bottom:4px dotted #cc0000;
+  }
+}
+//--------------trio---------------------//
+.trio{
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+}
+//--------------heading------------------//
+#heading{
+  font-size:3.5rem;
+  color:#00e6e6;
+  transform:translate(0,-50%);
+  font-family:$font-hd;
+  word-spacing:0.5rem;
+}
+//--------------wrapper------------------//
+.wrapper{
+  display:flex;
+  flex-direction:column;
+  align-items:spacearound;
+  color:cyan;
+  opacity:0.1;
+  font-weight:bold;
+  background-color:#111;
+  padding:1rem;
+  border-radius:10px;
+  transition:.3s ease;
+  @include box-shadow(0 0 0.5rem #ddd inset,0 0 1rem cyan);
+  &>div{
+    display:flex;
+    flex-direction:row;
+    &>div{position:relative;
+      margin:0.4rem;
+      width:6rem;
+      height:6rem;
+      line-height:50%;
+      text-align:center;
+      background-color:#222;
+      border:2px solid #888;
+      border-radius:20px;
+      padding:2rem;
+      transition:.3s ease;
+      @include box-shadow(0 0 0.7rem #ddd inset);
+      &:hover,&:active{
+        @include box-shadow(0 0 0.4rem cyan inset);
+      }
+    }
+  }
+}//wrapper ends
+//------------extras: bottom-------------------//
+  .extras{
+    display:none;
+    font-size:1.4rem;
+    color:$hd;
+    text-align:center;
+    transform:translate(0,90%);
+    #exu,#excomp{
+      margin-left:0.5rem;
+    }
+    #exrst{
+      border-bottom:4px dotted transparent;
+      border-radius:10px;
+      cursor:pointer;
+      margin-left:0.5rem;
+      font-size:1.6rem;
+      &:hover{
+        color:$hd;
+        border-bottom:4px dotted #cc0000;
+      }
+    }
+    #exu-c,#excomp-c{
+      margin-left:0.2rem;
+      margin-right:0.5rem;
+      color:cyan;
+      font-weight:bold;
+      
+    }
+  }
+
+//----------------------end-------------//
+#end{
+  @extend #display;
+  background-color:rgba(0,0,0,0.9);
+  @include box-shadow(0 0 3.5rem #666 inset, 0 0 3rem cyan);
+  border-radius:10px;
+  color: #00cccc;
+  display:none;
+  font-size:2.5rem;
+  word-spacing:0.3rem;
+  //font-weight:600;
+  #endin{
+    height:100%; //imp to set this so center takes effect
+    width:100%;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+}
+//-----------------------------------------------//
